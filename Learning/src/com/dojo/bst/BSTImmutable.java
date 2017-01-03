@@ -3,6 +3,10 @@ package com.dojo.bst;
 public final class BSTImmutable {
 	private Node root = null;
 	
+	public BSTImmutable() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public BSTImmutable(BSTImmutable bst) {
 		// TODO Auto-generated constructor stub
 		this.root = bst.root;
