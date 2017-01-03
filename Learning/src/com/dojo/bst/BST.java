@@ -43,7 +43,7 @@ public class BST  {
 				}
 			}
 		}
-		
+
 	}
 	public void display(Node root){
 		// Operation to display a BST
