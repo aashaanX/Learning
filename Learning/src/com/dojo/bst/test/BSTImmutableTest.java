@@ -25,7 +25,8 @@ public class BSTImmutableTest {
 		Node node = new Node(10);
 		BSTImmutable bst = new BSTImmutable(); 
 		assertNotEquals(bst, bst.insert(bst, node));
-		//assertFalse(bst.find(10));
+		assertFalse(bst.find(10));
+		assertFalse(!(bst.insert(bst, node).find(10)));
 		//assertNotNull(new_bst);
 	}
 
