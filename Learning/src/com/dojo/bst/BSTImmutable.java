@@ -16,6 +16,7 @@ public final class BSTImmutable {
 		BSTImmutable bst_return = new BSTImmutable(bst);
 		if(bst.root==null){
 			bst_return.root=node;
+			return bst_return;
 		}
 		Node current = bst_return.root;
 		Node parent = null;
