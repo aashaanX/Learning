@@ -1,6 +1,6 @@
 package com.dojo.bst;
 
-public class Node {
+public final class Node {
 	int data;
 	Node left;
 	Node right;
