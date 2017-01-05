@@ -1,7 +1,7 @@
 package com.dojo.bst;
 
 public final class BSTImmutable {
-	private Node root = null;
+	private Node root;
 	
 	public BSTImmutable() {
 		// TODO Auto-generated constructor stub
@@ -23,22 +23,21 @@ public final class BSTImmutable {
 		while(true){
 			parent = current;
 			if(node.data < current.data){
+				System.out.println("node data is less");
 				current = current.left;
 				if(current==null){
 					parent.left = node;
-					System.out.println("entered data:"+ node.data);
 					return bst_return;
 				}
 			}else if(node.data > current.data){
 				current = current.right;
 				if(current==null){
 					parent.right = node;
-					System.out.println("entered data:"+ node.data);
 					return bst_return;
 				}
 			}else{
-				System.out.println("Node already Exist");
-				return bst_return;
+				// Node alredy Exist so no new bst will be created
+				return bst;
 			}
 		}
 	}
