@@ -47,5 +47,48 @@ public class BSTImmutableTest {
 		bst.insert(bst, node).insert(bst, node);
 		assertNotEquals(bst.insert(bst, node), bst.insert(bst, node).insert(bst.insert(bst, node), node));
 	}
+	
+	@Test
+	public void testFind(){
+		Node node = new Node(10);
+		Node node2 = new Node(11);
+		BSTImmutable bst = new BSTImmutable();
+		bst = bst.insert(bst, node);
+		assertFalse(!(bst.find(10)));
+		bst = bst.insert(bst, node2);
+		assertFalse(!(bst.find(11)));
+		assertFalse(!(bst.find(10)));
+		Node node3 = new Node(9);
+		bst = bst.insert(bst, node3);
+		assertFalse(!(bst.find(9)));
+		assertFalse(!(bst.find(11)));
+		assertFalse(!(bst.find(10)));
+	}
+	
+	@Test
+	public void testInsertOrder(){
+		Node node = new Node(10);
+		Node node2 = new Node(11);
+		Node node3 = new Node(9);
+		BSTImmutable bst = new BSTImmutable();
+		bst = bst.insert(bst, node);
+		bst = bst.insert(bst, node2);
+		bst = bst.insert(bst, node3);
+		node = new Node(1);
+		node2 = new Node(2);
+		bst = bst.insert(bst, node);
+		bst = bst.insert(bst, node2);
+		bst = bst.insert(bst, new Node(20));
+		bst = bst.insert(bst, new Node(15));
+		assertFalse(!(bst.find(10)));
+		assertFalse(!(bst.find(11)));
+		assertFalse(!(bst.find(9)));
+		assertEquals(bst.getDataLeft(10), 9);
+		assertEquals(bst.getDataRight(10), 11);
+		assertEquals(bst.getDataLeft(9),1);
+		assertEquals(bst.getDataRight(1),2);
+		assertEquals(bst.getDataRight(11),20);
+		assertEquals(bst.getDataLeft(20),15);
+	}
 
 }
