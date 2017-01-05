@@ -23,7 +23,6 @@ public final class BSTImmutable {
 		while(true){
 			parent = current;
 			if(node.data < current.data){
-				System.out.println("node data is less");
 				current = current.left;
 				if(current==null){
 					parent.left = node;
@@ -42,7 +41,7 @@ public final class BSTImmutable {
 		}
 	}
 	
-	public void displayByNode(Node root){
+	private void displayByNode(Node root){
 		// Operation to display a BST
 		if(root!=null){
 			displayByNode(root.left);
@@ -68,5 +67,33 @@ public final class BSTImmutable {
 			}
 		}
 		return false;
+	}
+	
+	public Object getDataLeft(int key){
+		Node current = root;
+		while(current!=null){
+			if (key==current.data){
+				return current.left.data;
+			}else if(current.data>key){
+				current = current.left;
+			}else{
+				current = current.right;
+			}
+		}
+		return null;
+	}
+	
+	public Object getDataRight(int key){
+		Node current = root;
+		while(current!=null){
+			if (key==current.data){
+				return current.right.data;
+			}else if(current.data>key){
+				current = current.left;
+			}else{
+				current = current.right;
+			}
+		}
+		return null;
 	}
 }
