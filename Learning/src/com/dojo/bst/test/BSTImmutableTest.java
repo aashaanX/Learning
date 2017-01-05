@@ -29,5 +29,23 @@ public class BSTImmutableTest {
 		assertFalse(!(bst.insert(bst, node).find(10)));
 		//assertNotNull(new_bst);
 	}
+	
+	@Test
+	public void testInsert(){
+		Node node = new Node(10);
+		Node node2 = new Node(100);
+		BSTImmutable bst = new BSTImmutable();
+		assertNotEquals(bst, bst.insert(bst, node));
+		assertNotEquals(bst.insert(bst, node),bst.insert(bst, node).insert(bst.insert(bst, node), node2));
+		assertFalse(!(bst.insert(bst, node).insert(bst, node2).find(100)));
+	}
+	
+	@Test
+	public void testInsertSameNode(){
+		Node node = new Node(10);
+		BSTImmutable bst = new BSTImmutable();
+		bst.insert(bst, node).insert(bst, node);
+		assertNotEquals(bst.insert(bst, node), bst.insert(bst, node).insert(bst.insert(bst, node), node));
+	}
 
 }
