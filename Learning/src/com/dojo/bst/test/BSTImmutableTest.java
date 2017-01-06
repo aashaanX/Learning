@@ -90,5 +90,34 @@ public class BSTImmutableTest {
 		assertEquals(bst.getDataRight(11),20);
 		assertEquals(bst.getDataLeft(20),15);
 	}
+	
+	@Test
+	public void testDelete(){
+		BSTImmutable bst = new BSTImmutable();
+		bst = bst.insert(bst, new Node(10));
+		bst = bst.insert(bst, new Node(11));
+		bst = bst.insert(bst, new Node(9));
+		bst = bst.insert(bst, new Node(1));
+		bst = bst.insert(bst, new Node(2));
+		bst = bst.insert(bst, new Node(20));
+		bst = bst.insert(bst, new Node(15));
+		bst = bst.insert(bst, new Node(5));
+		bst = bst.insert(bst, new Node(32));
+		bst = bst.insert(bst, new Node(3));
+		assertFalse(!(bst.find(10)));
+		assertFalse(!(bst.find(11)));
+		assertFalse(!(bst.find(9)));
+		assertFalse(!(bst.find(1)));
+		assertFalse(!(bst.find(2)));
+		assertFalse(!(bst.find(20)));
+		assertFalse(!(bst.find(15)));
+		assertFalse(!(bst.find(5)));
+		assertFalse(!(bst.find(32)));
+		assertFalse(!(bst.find(3)));
+		bst.delete(bst, new Node(11));
+		assertFalse((bst.find(11)));
+		
+		
+	}
 
 }
