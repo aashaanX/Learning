@@ -96,4 +96,27 @@ public final class BSTImmutable {
 		}
 		return null;
 	}
+	public BSTImmutable delete(BSTImmutable bst,Node node){
+		BSTImmutable bst_return = new BSTImmutable();
+		Node current = bst_return.root;
+		Node parent = null;
+		while(true){
+			parent = current;
+			if(node.data < current.data){
+				current=current.left;
+			}else if(node.data>current.data){
+				current = current.right;
+			}else{
+				if(current.data<parent.data){
+					if(current.right!=null){
+						
+					}
+					
+				}
+			}
+			return bst_return;	
+		}
+		
+		
+	}
 }
